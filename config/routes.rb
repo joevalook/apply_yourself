@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :apps, only: [:index, :show, :new, :create, :edit, :update]
 
-  # resources :interviews, only: [:new, :create, :edit, :update]
+  resources :interviews, only: [:new, :create, :edit, :update]
 
   # #users routes
   # get '/signup' => 'users#new'
