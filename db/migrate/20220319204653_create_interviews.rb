@@ -1,7 +1,7 @@
 class CreateInterviews < ActiveRecord::Migration[6.1]
   def change
     create_table :interviews do |t|
-      t.int :interview_number
+      t.integer :interview_number
       t.date :interview_date
       t.references :app, index: true, foreign_key: true
       t.string :interview_type
