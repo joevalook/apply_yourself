@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interview_number: 
+  interview_date: 2022-03-19
+  interview_type: MyString
+  interview_notes: MyText
+  thank_you: false
+  completed: false
+
+two:
+  interview_number: 
+  interview_date: 2022-03-19
+  interview_type: MyString
+  interview_notes: MyText
+  thank_you: false
+  completed: false
