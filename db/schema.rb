@@ -10,28 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_20_155429) do
+ActiveRecord::Schema.define(version: 2022_03_19_204930) do
 
   create_table "apps", force: :cascade do |t|
+    t.string "job_title"
     t.date "application_deadline"
     t.date "applied_date"
     t.string "application_status"
     t.integer "company_id"
+    t.integer "user_id"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "job_title"
     t.index ["company_id"], name: "index_apps_on_company_id"
+    t.index ["user_id"], name: "index_apps_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
     t.string "company_name"
-    t.integer "app_id"
     t.string "website"
     t.text "company_notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["app_id"], name: "index_companies_on_app_id"
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_03_20_155429) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "apps", "companies"
-  add_foreign_key "companies", "apps"
-  add_foreign_key "interviews", "apps"
+  add_foreign_key "apps", "companies", on_delete: :cascade
+  add_foreign_key "apps", "users", on_delete: :cascade
+  add_foreign_key "interviews", "apps", on_delete: :cascade
 end
