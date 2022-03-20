@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_19_205536) do
+ActiveRecord::Schema.define(version: 2022_03_20_155429) do
 
   create_table "apps", force: :cascade do |t|
     t.date "application_deadline"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_03_19_205536) do
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "job_title"
     t.index ["company_id"], name: "index_apps_on_company_id"
   end
 
