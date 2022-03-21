@@ -4,4 +4,18 @@
       <h4 class="app-link"><%= app.job_title%></h4>
     <% end %>
   </header>
+
+  <p class="company_id">
+    <%= app.company.company_name%>
+  </p>
+
+  <% if app.application_status.include? "pending" %>
+  <p class="date">
+    <%= app.application_deadline%>
+  </p>
+  <% end%>
+
+    <p class="status">
+    <%= app.application_status%>
+  </p>
 </article>
