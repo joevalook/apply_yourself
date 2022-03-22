@@ -10,4 +10,18 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def route_finder(app_id)
+    total_interviews = Interview.select('*').where(app_id: app_id)
+    today = Date.today
+    future_interviews = []
+    total_interviews.each do |interview|
+      if interview.interview_date > today
+        future_interviews.push(interview)
+      end
+    end
+    future_interviews.sort.first
+  end
+
+  helper_method :route_finder
+
 end
