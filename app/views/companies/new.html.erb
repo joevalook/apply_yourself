@@ -1,0 +1,10 @@
+
+<h3> Step 1: Company info </h3>
+<%= form_with model: @company, url: '/companies', method: :post, local: true do |f| %>
+
+  company name*: <%= f.text_field :company_name %>
+  website*: <%= f.text_field :company_name %>
+  company notes: <%= f.text_field :company_notes %>
+  <%= f.submit "Submit" %>
+
+<% end %>

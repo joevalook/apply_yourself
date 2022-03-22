@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :interviews, only: [:new, :create, :edit, :update]
 
+  resources :companies, only: [:new, :create, :edit, :update]
+
   #users routes
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
