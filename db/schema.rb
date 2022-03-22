@@ -14,6 +14,10 @@ ActiveRecord::Schema.define(version: 2022_03_19_204930) do
 
   create_table "apps", force: :cascade do |t|
     t.string "job_title"
+    t.string "resume"
+    t.string "cover_letter"
+    t.string "project"
+    t.string "project_deadline"
     t.date "application_deadline"
     t.date "applied_date"
     t.string "application_status"
