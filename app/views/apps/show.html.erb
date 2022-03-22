@@ -1,1 +1,21 @@
-<h1>find me at apps/views/show</h1>
+<article class="app">
+  <header>
+      <h4 class="app-link"><%= @app.job_title%></h4>
+  </header>
+
+ <div class="col-sm-8">
+<div class="row">
+  <dl class="dl-horizontal" >
+    <dt>Job Title</dt>
+    <dd><%= @app.job_title %></dd>
+    <dt>Company Name</dt>
+    <dd><%= @app.company.company_name %></dd>
+    <dt>Application Deadline</dt>
+    <dd><%= @app.application_deadline %></dd>
+    <dt>Application Status</dt>
+    <dd><%= @app.application_status %></dd>
+    <dt>Notes</dt>
+    <dd><%= @app.notes %></dd>
+</div>
+
+</article>
