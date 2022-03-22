@@ -1,7 +1,7 @@
 class App < ApplicationRecord
 
   belongs_to :company
-  has_one :user
+  belongs_to :user
   has_many :interviews
 
   def self.get_interviews

@@ -2,7 +2,7 @@ class AppsController < ApplicationController
   before_action :authorize
   
   def index
-    @apps = App.all.order(created_at: :desc)
+    @apps = current_user.apps.order(created_at: :desc)
   end
 
   def show
