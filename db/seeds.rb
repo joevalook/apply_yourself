@@ -95,7 +95,7 @@ app3 = company3.apps.create!({
 
 # INTERVIEWS
 
-puts "Re-creating Interviews ..."
+puts "Creating Interviews ..."
 
 Interview.destroy_all
 
@@ -111,10 +111,10 @@ app1.interviews.create!({
 app2.interviews.create!({
   interview_number: 2,
   interview_date: '2022-06-10',
-  interview_type: 'Whiteboard',
+  interview_type: 'Preliminary',
   interview_notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
-  thank_you: true,
-  completed: true
+  thank_you: false,
+  completed: false
 })
 
 app2.interviews.create!({
