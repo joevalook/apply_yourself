@@ -4,7 +4,7 @@ class App < ApplicationRecord
   has_one :user
   has_many :interviews
 
-  validates_presence_of :job_title, :title, :resume, :company_name, :date_applied, :application_status
+  validates_presence_of :job_title, :resume, :applied_date, :application_status
  
   def self.get_interviews
     interviews = App.joins(:interviews).select('*')

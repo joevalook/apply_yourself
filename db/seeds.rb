@@ -60,6 +60,7 @@ puts "Creating Apps ..."
 App.destroy_all
 
 app1 = company1.apps.create!({
+  resume: "resume.com",
   job_title: 'Rails Developer',
   application_deadline: '2022-05-12',
   applied_date: '2022-04-12',
@@ -69,6 +70,7 @@ app1 = company1.apps.create!({
 })
 
 app2 = company2.apps.create!({
+  resume: "resume.com",
   job_title: 'React Developer',
   application_deadline: '2022-05-01',
   applied_date: '2022-04-11',
@@ -78,6 +80,7 @@ app2 = company2.apps.create!({
 })
 
 app3 = company3.apps.create!({
+  resume: "resume.com",
   job_title: 'QA Specialist',
   application_deadline: '2022-06-04',
   applied_date: '2022-04-15',
