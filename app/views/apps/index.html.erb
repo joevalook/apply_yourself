@@ -5,8 +5,9 @@
   </header>
 
   <div class="apps">
-    <%= render @apps %>
+    <% @apps.each do |app| %>
+      <%= render 'app', app: app%>
+    <%end%>
   </div>
 
 </section>
-

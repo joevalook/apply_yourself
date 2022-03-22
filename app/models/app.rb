@@ -4,4 +4,8 @@ class App < ApplicationRecord
   has_one :user
   has_many :interviews
 
+  def self.get_interviews
+    interviews = App.joins(:interviews).select('*')
+  end
+
 end

@@ -6,16 +6,22 @@
   </header>
 
   <p class="company_id">
+  Company Name
+  <div>
     <%= app.company.company_name%>
   </p>
 
-  <% if app.application_status.include? "pending" %>
+  Upcoming Dates
+  <div>
   <p class="date">
-    <%= app.application_deadline%>
+    <%if route_finder(app.id)%>
+      <%= route_finder(app.id).interview_date%>
+    <%end%>
   </p>
-  <% end%>
 
-    <p class="status">
+
+  Application Status
+  <p class="status">
     <%= app.application_status%>
   </p>
 </article>
