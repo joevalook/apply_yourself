@@ -1,21 +1,5 @@
 <h1>New Application</h1>
 
-
-# <%= form_for :app, url: '/apps' do |f| %>
-
-#   Job Title *: <%= f.text_field :job_title %>
-#   Link to resume *: <%= f.text_field :resume %>
-#   Link to cover Letter: <%= f.text_field :cover_letter %>
-#   Link to project : <%= f.text_field :project %>
-#   deadline for project: <%= f.date_field :project_deadline %>
-#   company name*: <%= f.text_field :company_name %>
-#   company notes: <%= f.text_field :company_notes %>
-#   date Applied*: <%= f.date_field :applied_date %>
-#   application Status*: <%= f.text_field :application_status %>
-#   <%= f.submit "Submit" %>
-
-# <% end %>
-
 <%= form_with model: @app, url: '/apps', method: :post, local: true do |f| %>
 
   Job Title *: <%= f.text_field :job_title %>
@@ -25,6 +9,7 @@
   deadline for project: <%= f.date_field :project_deadline %>
   date Applied*: <%= f.date_field :applied_date %>
   application Status*: <%= f.text_field :application_status %>
+  <%= f.hidden_field :company_id, value: @company.id %>
   <%= f.submit "Submit" %>
 
 <% end %>

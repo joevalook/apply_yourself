@@ -12,10 +12,10 @@ class AppsController < ApplicationController
     @app = App.new
   end
   def create
-    @app = App.new(params.require(:app).permit(:job_title, :resume, :cover_letter, :project, :project_deadline, :applied_date, :application_status))
-    if @app.save
+    @app = App.new(company_id: params[:company_id], job_title: params[:job_title], resume: params[:resume], cover_letter:params[:cover_letter], project: params[:project], project_deadline: params[:project_deadline], applied_date: params[:applied_date], application_status: params[:application_status])
+    if @app.save!
       flash[:success] = "New app successfully added!"
-      redirect_to '/apps/new'
+      redirect_to '/'
     else
       flash.now[:error] = "app creation failed"
       render :new
