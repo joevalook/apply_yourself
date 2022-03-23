@@ -1,21 +1,51 @@
-<article class="app">
-  <header>
-      <h4 class="app-link"><%= @app.job_title%></h4>
-  </header>
+<section class="app">
+<header>
+ 
+<h1>Interviews</h1>
+<a class="btn btn-primary" href="/" role="button">Add Interview</a>
 
- <div class="col-sm-8">
-<div class="row">
+</header>
+ <div class="interview-panel">
+    <%if interview_finder(@app.id)%>
+      <% interview_finder(@app.id).each do |interview|%>
+      <%= render 'interview', interview: interview %>
+       <%end%>
+    <%end%>
+  </div>
+  
+ <div class="company-panel">
+    <%if @app.company%>
+    <h3>Company</h3>
+    <h5>Company Name</h5>
+      <%=@app.company.company_name%>
+      <h5>Company Notes</h5>
+       <%=@app.company.company_notes%>
+    <%end%>
+   </div>
+
+<header>
+<h1>Jobs</h1>
+</header>
+<header>
+      <h4><%= @app.job_title%></h4>
+  </header>
+  
+<article class="app-detail">
+  <div class="row">
   <dl class="dl-horizontal" >
-    <dt>Job Title</dt>
-    <dd><%= @app.job_title %></dd>
     <dt>Company Name</dt>
     <dd><%= @app.company.company_name %></dd>
     <dt>Application Deadline</dt>
     <dd><%= @app.application_deadline %></dd>
+     <dt>Applied Date</dt>
+    <dd><%= @app.applied_date %></dd>
     <dt>Application Status</dt>
     <dd><%= @app.application_status %></dd>
     <dt>Notes</dt>
     <dd><%= @app.notes %></dd>
-</div>
+    </div>  
+  </article>
 
-</article>
+  
+
+</section>
