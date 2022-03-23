@@ -1,8 +1,9 @@
 <section class="app">
 <header>
- <%if interview_finder(@app.id) %>
+ 
 <h1>Interviews</h1>
-<%end%>
+<a class="btn btn-primary" href="/" role="button">Add Interview</a>
+
 </header>
  <div class="interview-panel">
     <%if interview_finder(@app.id)%>
