@@ -28,6 +28,12 @@ User.create!({
   password_digest: "abcd"
 })
 
+User.create!({
+  first_name: "John:",
+  last_name: "Bilson",
+  email: "john.bilson@hotmail.com",
+  password_digest: "abcd"
+})
 
 
 ## COMPANIES
@@ -85,14 +91,14 @@ app3 = company3.apps.create!({
   application_deadline: '2022-06-04',
   applied_date: '2022-04-15',
   application_status: 'Interview completed',
-  user_id: 1,
+  user_id: 2,
   notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
 })
 
 
 # INTERVIEWS
 
-puts "Re-creating Interviews ..."
+puts "Creating Interviews ..."
 
 Interview.destroy_all
 
@@ -108,10 +114,10 @@ app1.interviews.create!({
 app2.interviews.create!({
   interview_number: 2,
   interview_date: '2022-06-10',
-  interview_type: 'Whiteboard',
+  interview_type: 'Preliminary',
   interview_notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
-  thank_you: true,
-  completed: true
+  thank_you: false,
+  completed: false
 })
 
 app2.interviews.create!({

@@ -24,4 +24,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :route_finder
 
+  def interview_finder(app_id)
+    all_interviews = Interview.select('*').where(app_id: app_id)
+  end
+  helper_method :interview_finder
+
+  # def company_finder(app_id)
+  # all_companies = Company.select('*').where(company_id: company_id)
+  # end
+  # helper_method :company_finder
+
 end
