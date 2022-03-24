@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :interview_finder
 
+    #hello
   # def company_finder(app_id)
   # all_companies = Company.select('*').where(company_id: company_id)
   # end

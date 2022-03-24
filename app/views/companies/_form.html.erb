@@ -1,0 +1,29 @@
+<%= form_with model: @company, url: "/companies", method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :company_name, "Company Name(required)" %><br>
+    <%= form.text_field :company_name %>
+    <% company.errors.full_messages_for(:company_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :website %><br>
+    <%= form.text_field :website %>
+    <% company.errors.full_messages_for(:website).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :company_notes %><br>
+    <%= form.text_field :company_notes %>
+    <% company.errors.full_messages_for(:company_notes).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

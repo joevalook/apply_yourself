@@ -1,17 +1,3 @@
 <h1>New Interview</h1>
 
-
-<%= form_for :app, url: '/apps' do |f| %>
-
-  Interview Number *: <%= f.number_field :interview_number %>
-  Interview Date *: <%= f.date_field :interview_date %>
-  Interview Type : <%= f.text_field :interview_type %>
-  Interview Notes: <%= f.text_field :interview_notes %>
-  Thank you email sent?*: <%= f.check_field :thank_you %>
-  # technically not need because we can check via date
-  Interview completed?*: <%= f.check_field :completed %>
-  # here we could have a drop down menu with all the applications to choose from for the user or we could find a way to autofill the form with the correct assignment param
-  <%= f.submit "Submit" %>
-
-<% end %>
-
+<%= render "form", app: @app %>

@@ -2,11 +2,16 @@ Rails.application.routes.draw do
 
     get "/", to: "apps#index"
 
-  resources :apps, only: [:index, :show, :new, :create, :edit, :update]
+  resources :companies, only: [:new, :create, :edit, :update] do
+    resources :apps, only: [:new, :create] 
+  end
 
-  resources :interviews, only: [:new, :create, :edit, :update]
+  resources :apps, only: [] do
+    resources :interviews, only: [:new, :create]
+  end
 
-  resources :companies, only: [:new, :create, :edit, :update]
+  resources :interviews, only: [:edit, :update]
+  resources :apps, only: [:index, :show, :edit, :update]
 
   #users routes
   get '/signup' => 'users#new'
