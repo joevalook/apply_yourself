@@ -1,28 +1,46 @@
-<article class="app">
-  <header>
-    <%= link_to app do %>
-      <h4 class="app-link"><%= app.job_title%></h4>
-    <% end %>
-  </header>
+<table class="table is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Job Title</th>
+      <th>Company Name</th>
+      <th>Upcoming Dates</th>
+      <th>Application Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- apps.each do |app|%>
+      <tr>
+        
+        <th>
+          <%= link_to app do %>
+            <%= app.job_title%>
+          <% end %>
+        </th>
 
-  <p class="company_id">
-  Company Name
-  <div>
-    <%= app.company.company_name%>
-  </p>
+        <td>
+          <%= app.company.company_name%>
+        </td>
 
-  Upcoming Dates
-  <div>
-  <p class="date">
-    <%if route_finder(app.id)%>
-      <%= route_finder(app.id).interview_date%>
+        <td>
+        <%if route_finder(app.id)%>
+          <%= route_finder(app.id).interview_date%>
+          <%else%>
+          <%=""%>
+        <%end%>
+        </td>
+        
+        <td>
+        <%if app.application_status == "Interview pending"%>
+        <span class="icon is-large">
+          <i class="fa fa-file-text-o"></i>
+          <i class="fa fa-camera-retro"></i>
+          <i class="fa fa-file-o" aria-hidden="true"></i> 
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </span>
+        <%end%>
+        </td>
+      </tr>
     <%end%>
-  </p>
+  </tbody>
+</table>
 
-
-
-  Application Status
-  <p class="status">
-    <%= app.application_status%>
-  </p>
-</article>

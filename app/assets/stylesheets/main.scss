@@ -1,0 +1,17 @@
+// main.scss is going to act as your hub where you will manage all of your scss partials and variables
+
+
+$blue: #72d0eb;
+$pink: #ffb3b3;
+$pink-invert: #fff;
+$family-serif: "Merriweather", "Georgia", serif;
+$primary: $pink;
+$primary-invert: $pink-invert;
+$family-primary: $family-serif;
+
+
+@import '_layout';
+
+@import 'bulma/bulma';
+
+@import 'font-awesome';
