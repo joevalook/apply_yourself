@@ -1,22 +1,6 @@
 <section class="index-index">
 <%= link_to "Create New App", '/companies/new' %>
-  <header class="page-header">
-    <h1>Your Applications!</h1>
-  </header>
-
   <div class="apps">
-    <% @apps.each do |app| %>
-      <%= render 'app', app: app%>
-    <%end%>
+    <%= render partial: "app", locals: {apps:@apps} %>
   </div>
-
 </section>
-
-  
-  
-  
-  
-  
-  
-  
-  
