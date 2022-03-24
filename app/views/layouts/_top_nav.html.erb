@@ -3,12 +3,10 @@
 <nav class="navbar is-primary">
       <a class="navbar-brand" >WorkStream</a>
       <a class="navbar-brand" href="/">Applications</a>
-
       <% if current_user %>
   Signed in as <%= current_user.first_name %> <%= current_user.last_name %> | <%= link_to "Logout", '/logout' %>
 <% else %>
   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
 <% end %>
-
 </nav>
 <html>
