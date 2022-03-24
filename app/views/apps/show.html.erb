@@ -1,51 +1,104 @@
-<section class="app">
-<header>
- 
-<h1>Interviews</h1>
-<a class="btn btn-primary" href="/" role="button">Add Interview</a>
 
-</header>
- <div class="interview-panel">
-    <%if interview_finder(@app.id)%>
-      <% interview_finder(@app.id).each do |interview|%>
-      <%= render 'interview', interview: interview %>
-       <%end%>
-    <%end%>
-  </div>
-  
- <div class="company-panel">
-    <%if @app.company%>
-    <h3>Company</h3>
-    <h5>Company Name</h5>
+ <p class="mt-4">
+</p>
+<section class="hero is-info">
+  <div class="hero-body">
+    <p class="title">
+   <%= @app.job_title%>
+    </p>
+    <p class="subtitle">
       <%=@app.company.company_name%>
-      <h5>Company Notes</h5>
-       <%=@app.company.company_notes%>
-    <%end%>
-   </div>
-
-<header>
-<h1>Jobs</h1>
-</header>
-<header>
-      <h4><%= @app.job_title%></h4>
-  </header>
-  
-<article class="app-detail">
-  <div class="row">
-  <dl class="dl-horizontal" >
-    <dt>Company Name</dt>
-    <dd><%= @app.company.company_name %></dd>
-    <dt>Application Deadline</dt>
-    <dd><%= @app.application_deadline %></dd>
-     <dt>Applied Date</dt>
-    <dd><%= @app.applied_date %></dd>
-    <dt>Application Status</dt>
-    <dd><%= @app.application_status %></dd>
-    <dt>Notes</dt>
-    <dd><%= @app.notes %></dd>
-    </div>  
-  </article>
-
-  
+    </p>
+  </div>
 
 </section>
+ <p class="mb-4">
+</p>
+
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-danger">
+          <p class="title">Interviews</p>
+          <p class="subtitle">Whats next?</p>
+          <div class="content">
+           <%if interview_finder(@app.id)%>
+            <% interview_finder(@app.id).each do |interview|%>
+            <%= render 'interview', interview: interview %>
+              <%end%>
+            <%end%>
+            </div>
+        </article>
+        <article class="tile is-child notification is-warning">
+          <p class="title">Company</p>
+          <p class="subtitle"><%=@app.company.company_name%></p>
+          <div class="content">
+          <%=@app.company.company_notes%>
+         </div>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <p class="title">Company</p>
+          <p class="subtitle"><%=@app.company.company_name%></p>
+          <div class="content">
+          <%=@app.company.company_notes%>
+         </div>
+
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/640x480.png">
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-danger">
+        <p class="title">Wide tile</p>
+        <p class="subtitle">MAYBE A PROGRESS BAR?</p>
+        <div class="content">
+         content is here
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-success">
+      <div class="content">
+        <p class="title">Job Details</p>
+        <p class="subtitle">Cover Letter</p>
+        <div class="content">
+        <%= @app.cover_letter %>
+        </div>
+        <p class="subtitle">Resume</p>
+        <div class="content">
+        <%= @app.resume %>
+        </div>
+         <p class="subtitle">Project</p>
+        <div class="content">
+        <%= @app.project %>
+        </div>
+         <p class="subtitle">Project Deadline</p>
+        <div class="content">
+        <%= @app.project_deadline %>
+        </div>
+        <p class="subtitle">Application Deadline</p>
+        <div class="content">
+        <%= @app.application_deadline %>
+        </div>
+        <p class="subtitle">Application Status</p>
+        <div class="content">
+        <%= @app.application_status %>
+        </div>
+        <p class="subtitle">Applied Date</p>
+        <div class="content">
+        <%= @app.applied_date %>
+        </div>
+        <p class="subtitle">Notes</p>
+        <div class="content">
+        <%= @app.notes %>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
