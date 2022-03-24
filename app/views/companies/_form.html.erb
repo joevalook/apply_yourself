@@ -1,4 +1,4 @@
-<%= form_with model: @company, url: "/companies", method: :post, local: true do |form| %>
+<%= form_with model: @company do |form| %>
   <div>
     <%= form.label :company_name, "Company Name(required)" %><br>
     <%= form.text_field :company_name %>

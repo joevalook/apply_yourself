@@ -1,8 +1,8 @@
-<%= form_with model: @interview, url: "/apps/#{app.id}/interviews", method: :post, local: true do |form| %>
+<%= form_with model: @interview do |form| %>
   <div>
     <%= form.label :interview_number, "Interview Number (required)" %><br>
     <%= form.number_field :interview_number %>
-    <% app.errors.full_messages_for(:interview_number).each do |message| %>
+    <% interview.errors.full_messages_for(:interview_number).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -10,7 +10,7 @@
   <div>
     <%= form.label :interview_date, "Interview Date (required)" %><br>
     <%= form.date_field :interview_date %>
-    <% app.errors.full_messages_for(:interview_date).each do |message| %>
+    <% interview.errors.full_messages_for(:interview_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -18,7 +18,7 @@
   <div>
     <%= form.label :interview_type %><br>
     <%= form.text_field :interview_type %>
-    <% app.errors.full_messages_for(:interview_type).each do |message| %>
+    <% interview.errors.full_messages_for(:interview_type).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -26,7 +26,7 @@
   <div>
     <%= form.label :interview_notes %><br>
     <%= form.text_area :interview_notes %>
-    <% app.errors.full_messages_for(:interview_notes).each do |message| %>
+    <% interview.errors.full_messages_for(:interview_notes).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -34,12 +34,10 @@
   <div>
     <%= form.label :thank_you, "Thank you email sent?" %><br>
     <%= form.check_box :thank_you %>
-    <% app.errors.full_messages_for(:thank_you).each do |message| %>
+    <% interview.errors.full_messages_for(:thank_you).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-
-  
 
   <div>
     <%= form.submit %>

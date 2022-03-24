@@ -45,10 +45,11 @@ class AppsController < ApplicationController
   end
 
   def update
+    
     @app = App.find(params[:id])
 
     if @app.update(app_params)
-      redirect_to :show
+      redirect_to "/apps"
     else
       render :edit
     end

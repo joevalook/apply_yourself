@@ -21,9 +21,17 @@ class InterviewsController < ApplicationController
   end
   
   def edit
+    @interview = Interview.find(params[:id])
   end 
   
   def update
+    @interview = Interview.find(params[:id])
+
+    if @interview.update(interview_params)
+      redirect_to "/apps"
+    else
+      render :edit
+    end
   end
 
   def interview_params 

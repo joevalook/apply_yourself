@@ -1,4 +1,4 @@
-<%= form_with model: @app, url: "/companies/#{comp}/apps", method: :post, local: true do |form| %>
+<%= form_with model: @app do |form| %>
   <div>
     <%= form.label :job_title, "Job Title(required)" %><br>
     <%= form.text_field :job_title %>
@@ -34,14 +34,14 @@
   <div>
     <%= form.label :project_deadline %><br>
     <%= form.date_field :project_deadline %>
-    <% app.errors.full_messages_for(:projust_deadline).each do |message| %>
+    <% app.errors.full_messages_for(:project_deadline).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
     <%= form.label :applied_date, "Applied Date*" %><br>
-    <%= form.date_field :applied_date %><br>
+    <%= form.date_field :applied_date %>
     <% app.errors.full_messages_for(:applied_date).each do |message| %>
       <div><%= message %></div>
     <% end %>

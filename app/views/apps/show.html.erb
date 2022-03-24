@@ -1,3 +1,4 @@
+<%@app.inspect%>
 <section class="app">
 <header>
  
@@ -13,16 +14,16 @@
       <%= render 'interview', interview: interview %>
        <%end%>
     <%end%>
+    
   </div>
   
  <div class="company-panel">
-    <%if @app.company%>
-    <h3>Company</h3>
-    <h5>Company Name</h5>
+      <h3>Company</h3>
+      <h5>Company Name</h5>
       <%=@app.company.company_name%>
       <h5>Company Notes</h5>
-       <%=@app.company.company_notes%>
-    <%end%>
+      <%=@app.company.company_notes%>
+      <a class="btn btn-primary" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
    </div>
 
 <header>
@@ -46,9 +47,10 @@
     <dt>Notes</dt>
     <dd><%= @app.notes %></dd>
     </div>  
+    <a class="btn btn-primary" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
   </article>
 
-  <a class="btn btn-primary" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
+  
   
 
 </section>
