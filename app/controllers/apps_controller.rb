@@ -49,7 +49,7 @@ class AppsController < ApplicationController
     @app = App.find(params[:id])
 
     if @app.update(app_params)
-      redirect_to "/apps"
+      redirect_to "/apps/#{@app.id}"
     else
       render :edit
     end
