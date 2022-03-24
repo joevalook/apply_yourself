@@ -1,7 +1,4 @@
-
- <p class="mt-4">
-</p>
-<section class="hero is-info">
+<section class="hero is-info my-4">
   <div class="hero-body">
     <p class="title">
    <%= @app.job_title%>
@@ -12,10 +9,8 @@
   </div>
 
 </section>
- <p class="mb-4">
-</p>
 
-<div class="tile is-ancestor">
+<div class="tile is-ancestor mx-4">
   <div class="tile is-vertical is-8">
     <div class="tile">
       <div class="tile is-parent is-vertical">
@@ -30,54 +25,47 @@
             <%end%>
             </div>
         </article>
-        <article class="tile is-child notification is-warning">
-          <p class="title">Company</p>
-          <p class="subtitle"><%=@app.company.company_name%></p>
-          <div class="content">
-          <%=@app.company.company_notes%>
+        <article class="tile is-child notification is-success">
+          <p class="title">Documents</p>
+     <p class="subtitle">Resume</p>
+        <div class="content">
+        <%= @app.resume %>
          </div>
+         <p class="subtitle">Cover Letter</p>
+        <div class="content">
+        <%= @app.cover_letter %>
+        </div>
+         <p class="subtitle">Project</p>
+        <div class="content">
+        <%= @app.project %>
+        </div>
         </article>
       </div>
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
           <p class="title">Company</p>
           <p class="subtitle"><%=@app.company.company_name%></p>
+           <p class="subtitle">Website</p>
+        <div class="content">
+        <%= @app.company.website %>
+        </div>
+         <p class="subtitle">Notes</p>
           <div class="content">
           <%=@app.company.company_notes%>
          </div>
 
-          <figure class="image is-4by3">
+          <%# <figure class="image is-4by3">
             <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
+          </figure> %>
         </article>
       </div>
     </div>
-    <div class="tile is-parent">
-      <article class="tile is-child notification is-danger">
-        <p class="title">Wide tile</p>
-        <p class="subtitle">MAYBE A PROGRESS BAR?</p>
-        <div class="content">
-         content is here
-        </div>
-      </article>
-    </div>
   </div>
   <div class="tile is-parent">
-    <article class="tile is-child notification is-success">
+    <article class="tile is-child notification is-primary">
       <div class="content">
         <p class="title">Job Details</p>
-        <p class="subtitle">Cover Letter</p>
-        <div class="content">
-        <%= @app.cover_letter %>
-        </div>
-        <p class="subtitle">Resume</p>
-        <div class="content">
-        <%= @app.resume %>
-        </div>
-         <p class="subtitle">Project</p>
-        <div class="content">
-        <%= @app.project %>
-        </div>
+        
          <p class="subtitle">Project Deadline</p>
         <div class="content">
         <%= @app.project_deadline %>

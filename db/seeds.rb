@@ -22,14 +22,14 @@ puts "Creating User..."
 User.destroy_all
 
 User.create!({
-  first_name: "John:",
+  first_name: "John",
   last_name: "Wilson",
   email: "john.wilson@hotmail.com",
   password_digest: "abcd"
 })
 
 User.create!({
-  first_name: "John:",
+  first_name: "John",
   last_name: "Bilson",
   email: "john.bilson@hotmail.com",
   password_digest: "abcd"
@@ -82,7 +82,9 @@ app2 = company2.apps.create!({
   applied_date: '2022-04-11',
   application_status: 'Interview pending',
   user_id: 1,
-  notes: 'Received followup from Peggy (HR). Will be meeting with Audra(team lead) and Ty for the interview.'
+  notes: 'Received followup from Peggy (HR). Will be meeting with Audra(team lead) and Ty for the interview.Fashion axe af meh lyft wayfarers, sriracha bitters. Scenester artisan pork belly poke slow-carb post-ironic, activated charcoal single-origin coffee next level. Ramps lo-fi cardigan tumeric trust fund. Everyday carry celiac you probably havent heard of them, chia wayfarers cold-pressed skateboard direct trade venmo ramps glossier raclette. Twee cliche kale chips, whatever meggings tote bag put a bird on it bushwick.
+  Pour-over chartreuse la croix offal skateboard semiotics hoodie keffiyeh marfa flannel farm-to-table iceland celiac +1. Skateboard salvia fingerstache coloring book etsy woke. Cliche flannel hell of typewriter blog PBR&B, kitsch yr. Craft beer four dollar toast XOXO, direct trade waistcoat kogi DIY mixtape butcher glossier woke irony slow-carb drinking vinegar kombucha. Kale chips craft beer everyday carry, tilde 90s forage iPhone bespoke. Food truck disrupt readymade, photo booth cold-pressed leggings gastropub succulents lomo bitters banjo ethical. Shaman ethical 8-bit meggings polaroid.
+  Flannel farm-to-table actually keytar banjo disrupt. Pour-over literally keytar, thundercats mixtape cardigan forage humblebrag. 3 wolf moon subway tile messenger bag bespoke scenester vinyl lyft shaman deep v aesthetic waistcoat banjo coloring book wayfarers chicharrones. Shoreditch celiac gastropub kickstarter subway tile man braid dreamcatcher hexagon bushwick.'
 })
 
 app3 = company3.apps.create!({

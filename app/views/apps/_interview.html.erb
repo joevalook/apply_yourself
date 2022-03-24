@@ -1,13 +1,14 @@
 <article class="interview">
 
 <div class='interview-preview'>
-<h3><%=interview.interview_type%></h3>
-<h3>Date</h3>
+<p class="subtitle">Type</p>
+<p><%=interview.interview_type%></h3>
+<p class="subtitle">Date</p>
 <p><%=interview.interview_date%></p>
 <%if !interview.completed%>
-<h3>Completed</h3>
-<p><%=interview.completed%></p>
+<p class="subtitle">Completed <%=interview.completed%></p>
 <%end%>
+
 </div>
 
 <article>
