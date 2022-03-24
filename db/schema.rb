@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2022_03_19_204930) do
     t.string "interview_type"
     t.text "interview_notes"
     t.boolean "thank_you"
-    t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["app_id"], name: "index_interviews_on_app_id"

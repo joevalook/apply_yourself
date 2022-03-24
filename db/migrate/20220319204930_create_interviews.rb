@@ -7,7 +7,6 @@ class CreateInterviews < ActiveRecord::Migration[6.1]
       t.string :interview_type
       t.text :interview_notes
       t.boolean :thank_you
-      t.boolean :completed
 
       t.timestamps
     end

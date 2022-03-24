@@ -47,7 +47,7 @@ class AppsController < ApplicationController
   def update
     @app = App.find(params[:id])
 
-    if @article.update(app_params)
+    if @app.update(app_params)
       redirect_to :show
     else
       render :edit

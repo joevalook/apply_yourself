@@ -108,7 +108,6 @@ app1.interviews.create!({
   interview_type: 'Preliminary',
   interview_notes: 'Meeting with Audra(team lead) and Ty for the interview',
   thank_you: false,
-  completed: false
 })
 
 app2.interviews.create!({
@@ -117,7 +116,6 @@ app2.interviews.create!({
   interview_type: 'Preliminary',
   interview_notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
   thank_you: false,
-  completed: false
 })
 
 app2.interviews.create!({
@@ -126,7 +124,6 @@ app2.interviews.create!({
   interview_type: 'Whiteboard',
   interview_notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
   thank_you: true,
-  completed: true
 })
 
 

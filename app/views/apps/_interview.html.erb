@@ -4,9 +4,12 @@
 <h3><%=interview.interview_type%></h3>
 <h3>Date</h3>
 <p><%=interview.interview_date%></p>
-<%if !interview.completed%>
+<%if interview.interview_date>Date.today%>
 <h3>Completed</h3>
-<p><%=interview.completed%></p>
+<p>false</p>
+<% else %>
+<h3>Completed</h3>
+<p>true</p>
 <%end%>
 </div>
 
