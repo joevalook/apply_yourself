@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_03_19_204930) do
     t.string "resume"
     t.string "cover_letter"
     t.string "project"
-    t.string "project_deadline"
+    t.date "project_deadline"
     t.date "application_deadline"
     t.date "applied_date"
     t.string "application_status"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2022_03_19_204930) do
     t.string "interview_type"
     t.text "interview_notes"
     t.boolean "thank_you"
-    t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["app_id"], name: "index_interviews_on_app_id"

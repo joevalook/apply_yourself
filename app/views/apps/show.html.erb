@@ -17,6 +17,7 @@
         <article class="tile is-child notification is-danger">
           <p class="title">Interviews</p>
           <p class="subtitle">Whats next?</p>
+          <a class="btn btn-primary" href="<%=@app.id%>/interviews/new" role="button">Add Interview</a>
           <div class="content">
            <%if interview_finder(@app.id)%>
             <% interview_finder(@app.id).each do |interview|%>
@@ -44,6 +45,7 @@
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
           <p class="title">Company</p>
+          <a class="btn btn-primary" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
           <p class="subtitle"><%=@app.company.company_name%></p>
            <p class="subtitle">Website</p>
         <div class="content">
@@ -65,7 +67,7 @@
     <article class="tile is-child notification is-primary">
       <div class="content">
         <p class="title">Job Details</p>
-        
+        <a class="btn btn-primary" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
          <p class="subtitle">Project Deadline</p>
         <div class="content">
         <%= @app.project_deadline %>

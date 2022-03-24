@@ -6,7 +6,9 @@ class AppsController < ApplicationController
   end
 
   def show
-  @app = App.find params[:id]
+  @app = App.find(params[:id])
+  @interview = Interview.new
+
   
     #1. First way by which we use the ID's to get the information
     # @company = Company.find_by(id: @app[:company_id])
@@ -19,24 +21,47 @@ class AppsController < ApplicationController
   #@company 
   #need to select company based on whats linked in app
   end
+
   def new
     @app = App.new
+    @company_id = params[:company_id]
   end
   def create
-    @app = App.new(company_id: params[:company_id], job_title: params[:job_title], resume: params[:resume], cover_letter:params[:cover_letter], project: params[:project], project_deadline: params[:project_deadline], applied_date: params[:applied_date], application_status: params[:application_status], user_id: current_user.id, notes: params[:notes])
+    puts params.inspect
+    @app = App.new(app_params)
+    @app.company_id = params[:company_id]
+    @app.user_id = current_user.id
     if @app.save!
       flash[:success] = "New app successfully added!"
       redirect_to '/'
     else
       flash.now[:error] = "app creation failed"
-      render :new
+      render :news
     end
   end
+ 
   def edit
+    @app = App.find(params[:id])
   end
+
   def update
+    
+    @app = App.find(params[:id])
+
+    if @app.update(app_params)
+      redirect_to "/apps"
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def app_params
+    params.require(:app).permit(:job_title, :resume, :cover_letter, :project, :project_deadline, :applied_date, :application_status, :notes)
   end
   
+  #user_id: current_user.id ompany_id: params[:company_id]
 
 end
 

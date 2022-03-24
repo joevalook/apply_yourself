@@ -1,9 +1,8 @@
-<h1>New Application</h1>
-<%= form_with model: @app, url: "/companies/#{@company_id}/apps", method: :post, local: true do |form| %>
+<%= form_with model: @app do |form| %>
   <div>
     <%= form.label :job_title, "Job Title(required)" %><br>
     <%= form.text_field :job_title %>
-    <% @app.errors.full_messages_for(:job_title).each do |message| %>
+    <% app.errors.full_messages_for(:job_title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -11,7 +10,7 @@
   <div>
     <%= form.label :resume, "Resume(required)" %><br>
     <%= form.text_field :resume %>
-    <% @app.errors.full_messages_for(:resume).each do |message| %>
+    <% app.errors.full_messages_for(:resume).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -19,7 +18,7 @@
   <div>
     <%= form.label :cover_letter %><br>
     <%= form.text_field :cover_letter %>
-    <% @app.errors.full_messages_for(:cover_letter).each do |message| %>
+    <% app.errors.full_messages_for(:cover_letter).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -27,7 +26,7 @@
   <div>
     <%= form.label :project %><br>
     <%= form.text_field :project %>
-    <% @app.errors.full_messages_for(:project).each do |message| %>
+    <% app.errors.full_messages_for(:project).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -35,7 +34,7 @@
   <div>
     <%= form.label :project_deadline %><br>
     <%= form.date_field :project_deadline %>
-    <% @app.errors.full_messages_for(:project_deadline).each do |message| %>
+    <% app.errors.full_messages_for(:project_deadline).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -43,7 +42,7 @@
   <div>
     <%= form.label :applied_date, "Applied Date*" %><br>
     <%= form.date_field :applied_date %>
-    <% @app.errors.full_messages_for(:applied_date).each do |message| %>
+    <% app.errors.full_messages_for(:applied_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -51,7 +50,7 @@
   <div>
     <%= form.label :application_deadline %><br>
     <%= form.date_field :application_deadline %>
-    <% @app.errors.full_messages_for(:application_deadline).each do |message| %>
+    <% app.errors.full_messages_for(:application_deadline).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -59,7 +58,7 @@
   <div>
     <%= form.label :applcation_status, "Application Status*" %><br>
     <%= form.text_field :application_status %>
-    <% @app.errors.full_messages_for(:application_status).each do |message| %>
+    <% app.errors.full_messages_for(:application_status).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -67,7 +66,7 @@
   <div>
     <%= form.label :notes %><br>
     <%= form.text_field :notes %>
-    <% @app.errors.full_messages_for(:notes).each do |message| %>
+    <% app.errors.full_messages_for(:notes).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -76,3 +75,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+
