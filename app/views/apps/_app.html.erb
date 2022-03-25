@@ -1,46 +1,52 @@
-<table class="table is-striped is-fullwidth">
-  <thead>
-    <tr>
-      <th>Job Title</th>
-      <th>Company Name</th>
-      <th>Upcoming Dates</th>
-      <th>Application Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%- apps.each do |app|%>
+<div class="container">
+  <table class="table is-striped is-hoverable">
+    <thead>
       <tr>
-        
-        <th>
-          <%= link_to app do %>
-            <%= app.job_title%>
-          <% end %>
-        </th>
-
-        <td>
-          <%= app.company.company_name%>
-        </td>
-
-        <td>
-        <%if route_finder(app.id)%>
-          <%= route_finder(app.id).interview_date%>
-          <%else%>
-          <%=""%>
-        <%end%>
-        </td>
-        
-        <td>
-        <%if app.application_status == "Interview pending"%>
-        <span class="icon is-large">
-          <i class="fa fa-file-text-o"></i>
-          <i class="fa fa-camera-retro"></i>
-          <i class="fa fa-file-o" aria-hidden="true"></i> 
-          <i class="fa fa-users" aria-hidden="true"></i>
-        </span>
-        <%end%>
-        </td>
+        <th>Job Title</th>
+        <th>Company Name</th>
+        <th>Upcoming Dates</th>
+        <th>Application Status</th>
       </tr>
-    <%end%>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <%- apps.each do |app|%>
+        <tr>
+          
+          <th class="job-title pt-3">
+            <%= link_to app do %>
+              <%= app.job_title%>
+            <% end %>
+          </th>
 
+          <td class="company-name pt-3">
+            <%= app.company.company_name%>
+          </td>
+
+          <td class="interview-date pt-3">
+          <%if route_finder(app.id)%>
+            <%= route_finder(app.id).interview_date.strftime("%B %d, %Y")%>
+            <%else%>
+            <%=""%>
+          <%end%>
+          </td>
+          
+          <td class="status-icon pl-6">
+            <%if app.application_status == "Resume sent"%>
+              <span class="icon is-medium has-text-success">
+                <i class="fa fa-file-text fa-2x" aria-hidden="true"></i>
+              </span>
+            <%elsif app.application_status == "Interview pending"%>
+              <span class="icon is-medium has-text-warning">
+                <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+              </span>
+            <%elsif app.application_status == "Interview completed"%>
+              <span class="icon is-medium has-text-success">
+                <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+              </span>
+            <%end%>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
