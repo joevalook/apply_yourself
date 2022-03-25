@@ -1,5 +1,5 @@
 <%= form_with model: @app do |form| %>
-  <div>
+  <div class="field">
     <%= form.label :job_title, "Job Title(required)" %><br>
     <%= form.text_field :job_title %>
     <% app.errors.full_messages_for(:job_title).each do |message| %>
@@ -7,15 +7,12 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :resume, "Resume(required)" %><br>
     <%= form.text_field :resume %>
-    <% app.errors.full_messages_for(:resume).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :cover_letter %><br>
     <%= form.text_field :cover_letter %>
     <% app.errors.full_messages_for(:cover_letter).each do |message| %>
@@ -23,7 +20,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :project %><br>
     <%= form.text_field :project %>
     <% app.errors.full_messages_for(:project).each do |message| %>
@@ -31,7 +28,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :project_deadline %><br>
     <%= form.date_field :project_deadline %>
     <% app.errors.full_messages_for(:project_deadline).each do |message| %>
@@ -39,7 +36,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :applied_date, "Applied Date*" %><br>
     <%= form.date_field :applied_date %>
     <% app.errors.full_messages_for(:applied_date).each do |message| %>
@@ -47,7 +44,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :application_deadline %><br>
     <%= form.date_field :application_deadline %>
     <% app.errors.full_messages_for(:application_deadline).each do |message| %>
@@ -55,7 +52,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :applcation_status, "Application Status*" %><br>
     <%= form.text_field :application_status %>
     <% app.errors.full_messages_for(:application_status).each do |message| %>
@@ -63,7 +60,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :notes %><br>
     <%= form.text_field :notes %>
     <% app.errors.full_messages_for(:notes).each do |message| %>
@@ -71,8 +68,8 @@
     <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <div class="control">
+  <button class="button is-primary">Submit</button>
+</div>
 <% end %>
 
