@@ -3,11 +3,15 @@
 
 $blue: #72d0eb;
 $pink: #ffb3b3;
+$red: #ce1717;
 $pink-invert: #fff;
+$red-invert: #fff;
 $family-serif: "Merriweather", "Georgia", serif;
 $primary: $pink;
 $primary-invert: $pink-invert;
 $family-primary: $family-serif;
+$secondary: $red;
+$secondary-invert: $red-invert;
 
 
 @import '_layout';

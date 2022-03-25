@@ -1,5 +1,8 @@
-<section class="index-index">
-<%= link_to "Create New App", '/companies' %>
+<section class="index-index mx-2">
+  <div class="button-shift">
+    <div class="button my-4 py-2 is-primary is-light is-outlined is-rounded"><%= link_to "Create New Application", '/companies' %>
+    </div>
+  </div>
   <div class="apps">
     <%= render partial: "app", locals: {apps:@apps} %>
   </div>
