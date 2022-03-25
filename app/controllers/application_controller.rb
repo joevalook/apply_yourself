@@ -27,7 +27,23 @@ class ApplicationController < ActionController::Base
   def interview_finder(app_id)
     all_interviews = Interview.select('*').where(app_id: app_id)
   end
-  helper_method :interview_finder
+
+  def all_companies()
+    apps = current_user.apps
+    a = []
+    apps.each do |app| 
+      a << Company.select('*').where(id: app.company_id)
+    end
+    return a
+  end
+  def interview_completed(interview)
+    if interview.interview_date>Date.today
+      return false
+    else
+      return true
+    end
+  end
+  helper_method :interview_finder, :interview_completed, :all_companies
 
     #hello
   # def company_finder(app_id)

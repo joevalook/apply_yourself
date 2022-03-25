@@ -1,0 +1,16 @@
+<table class="table is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Company Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% all_companies.each do |company|%>
+    <tr>
+      
+      <th>
+        <%= link_to "#{company[0].company_name}", "/companies/#{company[0].id}/apps/new" %>
+      </th>
+    </tr>
+  <% end %>
+</table>

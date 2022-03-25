@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
     get "/", to: "apps#index"
 
-  resources :companies, only: [:new, :create, :edit, :update] do
+  resources :companies, only: [:index, :new, :create, :edit, :update] do
     resources :apps, only: [:new, :create] 
   end
 

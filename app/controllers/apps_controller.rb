@@ -27,7 +27,6 @@ class AppsController < ApplicationController
     @company_id = params[:company_id]
   end
   def create
-    puts params.inspect
     @app = App.new(app_params)
     @app.company_id = params[:company_id]
     @app.user_id = current_user.id

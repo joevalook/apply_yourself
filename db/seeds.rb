@@ -73,6 +73,7 @@ app1 = company1.apps.create!({
   application_status: 'Resume sent',
   user_id: 1,
   notes: 'Referral from Mike at the Toronto Code Meetup'
+  archive: false
 })
 
 app2 = company2.apps.create!({
@@ -85,6 +86,7 @@ app2 = company2.apps.create!({
   notes: 'Received followup from Peggy (HR). Will be meeting with Audra(team lead) and Ty for the interview.Fashion axe af meh lyft wayfarers, sriracha bitters. Scenester artisan pork belly poke slow-carb post-ironic, activated charcoal single-origin coffee next level. Ramps lo-fi cardigan tumeric trust fund. Everyday carry celiac you probably havent heard of them, chia wayfarers cold-pressed skateboard direct trade venmo ramps glossier raclette. Twee cliche kale chips, whatever meggings tote bag put a bird on it bushwick.
   Pour-over chartreuse la croix offal skateboard semiotics hoodie keffiyeh marfa flannel farm-to-table iceland celiac +1. Skateboard salvia fingerstache coloring book etsy woke. Cliche flannel hell of typewriter blog PBR&B, kitsch yr. Craft beer four dollar toast XOXO, direct trade waistcoat kogi DIY mixtape butcher glossier woke irony slow-carb drinking vinegar kombucha. Kale chips craft beer everyday carry, tilde 90s forage iPhone bespoke. Food truck disrupt readymade, photo booth cold-pressed leggings gastropub succulents lomo bitters banjo ethical. Shaman ethical 8-bit meggings polaroid.
   Flannel farm-to-table actually keytar banjo disrupt. Pour-over literally keytar, thundercats mixtape cardigan forage humblebrag. 3 wolf moon subway tile messenger bag bespoke scenester vinyl lyft shaman deep v aesthetic waistcoat banjo coloring book wayfarers chicharrones. Shoreditch celiac gastropub kickstarter subway tile man braid dreamcatcher hexagon bushwick.'
+  archive: false
 })
 
 app3 = company3.apps.create!({
@@ -95,6 +97,29 @@ app3 = company3.apps.create!({
   application_status: 'Interview completed',
   user_id: 2,
   notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
+  archive: false
+})
+
+app4 = company1.apps.create!({
+  resume: "resume.com",
+  job_title: 'Rails Developer',
+  application_deadline: '2022-05-12',
+  applied_date: '2022-04-12',
+  application_status: 'Resume sent',
+  user_id: 1,
+  notes: 'Referral from Mike at the Toronto Code Meetup'
+  archive: true
+})
+
+app5 = company3.apps.create!({
+  resume: "resume.com",
+  job_title: 'QA Specialist',
+  application_deadline: '2022-06-04',
+  applied_date: '2022-04-15',
+  application_status: 'Interview completed',
+  user_id: 2,
+  notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
+  archive: true
 })
 
 

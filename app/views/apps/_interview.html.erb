@@ -5,13 +5,6 @@
 <p><%=interview.interview_type%></h3>
 <p class="subtitle">Date</p>
 <p><%=interview.interview_date%></p>
-<%if interview.interview_date>Date.today%>
-<h3>Completed</h3>
-<p>false</p>
-<% else %>
-<h3>Completed</h3>
-<p>true</p>
-<%end%>
 <a class="btn btn-primary" href="/interviews/<%=interview.id%>/edit" role="button">Edit this Interview</a>
 </div>
 
