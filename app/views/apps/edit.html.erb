@@ -1,2 +1,86 @@
-<h1>Edit Application</h1>
-<%= render "form", app: @app %>
+<div class="section">
+  <div class="container" style="align-items:center;">
+    <div class="content is-medium form_container" >
+
+      <h1 style="text-align:center;">Edit Application</h1>
+
+      <%= form_with model: @app do |form| %>
+        <div class="field">
+        <%= form.label :job_title, "Job Title (required)" %><br>
+        <%= form.text_field :job_title %>
+        <% @app.errors.full_messages_for(:job_title).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+        </div>
+
+        <div class="field">
+          <%= form.label :resume, "Resume (required)" %><br>
+          <%= form.text_field :resume %>
+          <% @app.errors.full_messages_for(:resume).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= form.label :cover_letter %><br>
+          <%= form.text_field :cover_letter %>
+          <% @app.errors.full_messages_for(:cover_letter).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= form.label :project %><br>
+          <%= form.text_field :project %>
+          <% @app.errors.full_messages_for(:project).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= form.label :project_deadline %><br>
+          <%= form.date_field :project_deadline %>
+          <% @app.errors.full_messages_for(:project_deadline).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= form.label :applied_date, "Applied Date*" %><br>
+          <%= form.date_field :applied_date %>
+          <% @app.errors.full_messages_for(:applied_date).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label :application_deadline %><br>
+          <%= form.date_field :application_deadline %>
+          <% @app.errors.full_messages_for(:application_deadline).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= form.label :applcation_status, "Application Status*" %><br>
+          <%= form.text_field :application_status %>
+          <% @app.errors.full_messages_for(:application_status).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= form.label :notes %><br>
+          <%= form.text_field :notes %>
+          <% @app.errors.full_messages_for(:notes).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class= "form_button">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

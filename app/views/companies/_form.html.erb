@@ -1,5 +1,5 @@
 <%= form_with model: @company do |form| %>
-  <div>
+  <div class="field">
     <%= form.label :company_name, "Company Name(required)" %><br>
     <%= form.text_field :company_name %>
     <% company.errors.full_messages_for(:company_name).each do |message| %>
@@ -7,7 +7,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :website %><br>
     <%= form.text_field :website %>
     <% company.errors.full_messages_for(:website).each do |message| %>
@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :company_notes %><br>
     <%= form.text_field :company_notes %>
     <% company.errors.full_messages_for(:company_notes).each do |message| %>
@@ -23,7 +23,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class= "form_button">
     <%= form.submit %>
   </div>
 <% end %>
