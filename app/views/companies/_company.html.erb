@@ -9,7 +9,7 @@
     <tr>
       
       <th>
-        <%= link_to "#{company[0].company_name}", "/companies/#{company[0].id}/apps/new" %>
+        <%= link_to company.company_name, "/companies/#{company.id}/apps/new" %>
       </th>
     </tr>
   <% end %>

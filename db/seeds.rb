@@ -21,20 +21,25 @@ puts "Creating User..."
 
 User.destroy_all
 
-User.create!({
-  first_name: "John",
-  last_name: "Wilson",
-  email: "john.wilson@hotmail.com",
-  password_digest: "abcd"
-})
+users = [
+  User.create!({
+    first_name: "John",
+    last_name: "Wilson",
+    email: "john.wilson@hotmail.com",
+    password_digest: "abcd"
+  }),
+  User.create!({
+    first_name: "John",
+    last_name: "Bilson",
+    email: "john.bilson@hotmail.com",
+    password_digest: "abcd"
+  })
+]
 
-User.create!({
-  first_name: "John",
-  last_name: "Bilson",
-  email: "john.bilson@hotmail.com",
-  password_digest: "abcd"
-})
-
+p "*******************"
+pp users
+pp users.first.id
+p "*******************"
 
 ## COMPANIES
 
@@ -42,21 +47,18 @@ puts "Creating Companies ..."
 
 Company.destroy_all
 
-company1 = Company.create!({
-  company_name: 'Googley Eyes',
-  website: 'www.googley.com',
-  company_notes: 'Some kind of search engine, I think?'
-})
-company2 = Company.create!({
-  company_name: 'Webflix',
-  website: 'www.webflix.com',
-  company_notes: 'Streaming company'
-})
-company3 = Company.create!({
-  company_name: 'Facelook',
-  website: 'www.facelook.com',
-  company_notes: 'People-ranker turned SecondLife'
-})
+companies = 50.times.map do
+  Company.create! do |c|
+    company_name = Faker::App.unique.name
+
+    c.company_name = company_name
+    c.website = Faker::Internet.url(
+      host: Faker::Internet.domain_name(domain: company_name),
+      path: '/hiring'
+    )
+    c.company_notes = Faker::Marketing.buzzwords.capitalize + '!'
+  end
+end
 
 
 ## APPS
@@ -65,62 +67,28 @@ puts "Creating Apps ..."
 
 App.destroy_all
 
-app1 = company1.apps.create!({
-  resume: "resume.com",
-  job_title: 'Rails Developer',
-  application_deadline: '2022-05-12',
-  applied_date: '2022-04-12',
-  application_status: 'Resume sent',
-  user_id: 1,
-  notes: 'Referral from Mike at the Toronto Code Meetup'
-  archive: false
-})
-
-app2 = company2.apps.create!({
-  resume: "resume.com",
-  job_title: 'React Developer',
-  application_deadline: '2022-05-01',
-  applied_date: '2022-04-11',
-  application_status: 'Interview pending',
-  user_id: 1,
-  notes: 'Received followup from Peggy (HR). Will be meeting with Audra(team lead) and Ty for the interview.Fashion axe af meh lyft wayfarers, sriracha bitters. Scenester artisan pork belly poke slow-carb post-ironic, activated charcoal single-origin coffee next level. Ramps lo-fi cardigan tumeric trust fund. Everyday carry celiac you probably havent heard of them, chia wayfarers cold-pressed skateboard direct trade venmo ramps glossier raclette. Twee cliche kale chips, whatever meggings tote bag put a bird on it bushwick.
-  Pour-over chartreuse la croix offal skateboard semiotics hoodie keffiyeh marfa flannel farm-to-table iceland celiac +1. Skateboard salvia fingerstache coloring book etsy woke. Cliche flannel hell of typewriter blog PBR&B, kitsch yr. Craft beer four dollar toast XOXO, direct trade waistcoat kogi DIY mixtape butcher glossier woke irony slow-carb drinking vinegar kombucha. Kale chips craft beer everyday carry, tilde 90s forage iPhone bespoke. Food truck disrupt readymade, photo booth cold-pressed leggings gastropub succulents lomo bitters banjo ethical. Shaman ethical 8-bit meggings polaroid.
-  Flannel farm-to-table actually keytar banjo disrupt. Pour-over literally keytar, thundercats mixtape cardigan forage humblebrag. 3 wolf moon subway tile messenger bag bespoke scenester vinyl lyft shaman deep v aesthetic waistcoat banjo coloring book wayfarers chicharrones. Shoreditch celiac gastropub kickstarter subway tile man braid dreamcatcher hexagon bushwick.'
-  archive: false
-})
-
-app3 = company3.apps.create!({
-  resume: "resume.com",
-  job_title: 'QA Specialist',
-  application_deadline: '2022-06-04',
-  applied_date: '2022-04-15',
-  application_status: 'Interview completed',
-  user_id: 2,
-  notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
-  archive: false
-})
-
-app4 = company1.apps.create!({
-  resume: "resume.com",
-  job_title: 'Rails Developer',
-  application_deadline: '2022-05-12',
-  applied_date: '2022-04-12',
-  application_status: 'Resume sent',
-  user_id: 1,
-  notes: 'Referral from Mike at the Toronto Code Meetup'
-  archive: true
-})
-
-app5 = company3.apps.create!({
-  resume: "resume.com",
-  job_title: 'QA Specialist',
-  application_deadline: '2022-06-04',
-  applied_date: '2022-04-15',
-  application_status: 'Interview completed',
-  user_id: 2,
-  notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
-  archive: true
-})
+applications = 100.times.map do
+  App.create! do |a|
+    deadline = Time.now + rand(10..30).days
+    
+    a.job_title = "Junior #{%w[Rails Ruby Java Javascript React PostgreSQL MongoDB COBOL].sample} Developer"
+    a.company_id = companies.sample.id
+    a.resume = "resume.com/john.wilson"
+    a.application_deadline = deadline
+    a.applied_date = deadline - rand(1..9).days
+    a.application_status = [
+      'Resume sent',
+      'Resume sent',
+      'Resume sent',
+      'Resume sent',
+      'Interview pending',
+      'Interview completed'
+    ].sample
+    a.user_id = users.first.id
+    a.notes = "Referral from #{Faker::Name.first_name} at the #{Faker::Address.city} #{%w[ code-meetup jamboree think-tank ].sample }"
+    # a.archive = false
+  end
+end
 
 
 # INTERVIEWS
@@ -128,30 +96,27 @@ app5 = company3.apps.create!({
 puts "Creating Interviews ..."
 
 Interview.destroy_all
+interviews_by_company = Hash.new(0)
 
-app1.interviews.create!({
-  interview_number: 1,
-  interview_date: '2022-05-05',
-  interview_type: 'Preliminary',
-  interview_notes: 'Meeting with Audra(team lead) and Ty for the interview',
-  thank_you: false,
-})
+interviews = 25.times.map do
+  application = applications.sample
+  interview_number = interviews_by_company[application.company.company_name] += 1
+  interview_date = application.application_deadline + rand(1..30).days
 
-app2.interviews.create!({
-  interview_number: 2,
-  interview_date: '2022-06-10',
-  interview_type: 'Preliminary',
-  interview_notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
-  thank_you: false,
-})
-
-app2.interviews.create!({
-  interview_number: 2,
-  interview_date: '2022-03-10',
-  interview_type: 'Whiteboard',
-  interview_notes: 'Met with Raj and Jason. Positive vibes from both; chatted with Raj about mutual love of snowboarding. Will hear back within the week.',
-  thank_you: true,
-})
+  Interview.create! do |i|
+    i.interview_number = interview_number
+    i.interview_date = interview_date
+    i.app_id = application.id
+    i.interview_type = [
+      'Preliminary',
+      'Tech',
+      'Callback',
+      'Main'
+    ].sample
+    i.interview_notes = "Meeting with #{Faker::Name.name} (#{Faker::Job.seniority} #{Faker::Job.position}) and #{Faker::Name.name} (#{Faker::Job.seniority} #{Faker::Job.position})."
+    i.thank_you = interview_date > Time.now ? false : [true, false].sample
+  end
+end
 
 
 

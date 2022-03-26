@@ -11,3 +11,9 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+// window.jQuery = $;
+// window.$ = $;
+
+// $(document).ready(function() {
+//   $('#example').DataTable();
+// } );
