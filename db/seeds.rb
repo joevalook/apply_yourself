@@ -36,10 +36,6 @@ users = [
   })
 ]
 
-p "*******************"
-pp users
-pp users.first.id
-p "*******************"
 
 ## COMPANIES
 
@@ -63,6 +59,11 @@ end
 
 ## APPS
 
+
+pp "deadline",  Time.now + rand(10..30).days
+pp "Applied date", Time.now - rand(0..15) * 86400
+pp "Applied date2", Time.now - rand(0..15).days
+
 puts "Creating Apps ..."
 
 App.destroy_all
@@ -70,12 +71,14 @@ App.destroy_all
 applications = 100.times.map do
   App.create! do |a|
     deadline = Time.now + rand(10..30).days
+    applied_date = Time.now - rand(0..15).days
     
     a.job_title = "Junior #{%w[Rails Ruby Java Javascript React PostgreSQL MongoDB COBOL].sample} Developer"
     a.company_id = companies.sample.id
     a.resume = "resume.com/john.wilson"
+    a.cover_letter = "resume.com/cover_letter/john.wilson"
     a.application_deadline = deadline
-    a.applied_date = deadline - rand(1..9).days
+    a.applied_date = applied_date
     a.application_status = [
       'Resume sent',
       'Resume sent',
@@ -97,9 +100,9 @@ puts "Creating Interviews ..."
 
 Interview.destroy_all
 interviews_by_company = Hash.new(0)
+filtered_applications = applications.filter { |item| item.application_status == "Interview pending"}
 
-interviews = 25.times.map do
-  application = applications.sample
+interviews = filtered_applications.each do |application|
   interview_number = interviews_by_company[application.company.company_name] += 1
   interview_date = application.application_deadline + rand(1..30).days
 

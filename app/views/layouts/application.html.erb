@@ -11,12 +11,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/absolute.js"></script>
+    <%# <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bulma.min.css"> %>
     <script type="text/javascript">
-document.addEventListener("turbolinks:load", function () {
-  $('#example').DataTable();
-
-});
-</script>
+      document.addEventListener("turbolinks:load", function () {
+        var namesType = $.fn.dataTable.absoluteOrder( [
+    { value: '', position: 'bottom' }
+  ] );
+        $('#example').DataTable({
+          columnDefs: [
+      { type: namesType, targets: 2 },
+    ]
+        });
+      });
+  </script>
 
   </head>
 
