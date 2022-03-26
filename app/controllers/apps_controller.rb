@@ -1,8 +1,13 @@
 class AppsController < ApplicationController
   before_action :authorize
   
+  # def index
+  #   @apps = current_user.apps.order(created_at: :desc)
+  # end
+
   def index
-    @apps = current_user.apps.order(created_at: :desc)
+    @q = current_user.apps.ransack(params[:q])
+    @apps = @q.result(distinct: true)
   end
 
   def show

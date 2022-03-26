@@ -1,17 +1,26 @@
 // main.scss is going to act as your hub where you will manage all of your scss partials and variables
 
-
+// 2. Set your own initial variables
+// Update blue
 $blue: #72d0eb;
-$pink: #ffb3b3;
-$red: #ce1717;
-$pink-invert: #fff;
-$red-invert: #fff;
+// Add pink and its invert
+$pink: #48BFE3;
+$pink-invert: #6930C3;
+// Add a serif family
 $family-serif: "Merriweather", "Georgia", serif;
+$white: white;
+
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
 $primary: $pink;
 $primary-invert: $pink-invert;
+// Use the new serif family
 $family-primary: $family-serif;
-$secondary: $red;
-$secondary-invert: $red-invert;
+$background: $white;
+
+
+
 
 
 @import '_layout';

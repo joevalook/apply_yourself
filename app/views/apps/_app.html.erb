@@ -1,5 +1,5 @@
 <div class="container">
-  <table class="table is-striped is-hoverable">
+  <table class="table is-striped is-hoverable pt-4" id="example">
     <thead>
       <tr>
         <th>Job Title</th>
@@ -30,18 +30,21 @@
           <%end%>
           </td>
           
-          <td class="status-icon pl-6">
+          <td class="status-icon">
             <%if app.application_status == "Resume sent"%>
-              <span class="icon is-medium has-text-success">
-                <i class="fa fa-file-text fa-2x" aria-hidden="true"></i>
+              <span class="icon is-medium has-text-success" aria-label="Resume sent">
+                <i class="fa fa-file-text fa-2x" title="Resume sent"></i>
+                <div class="hide">1</div>
               </span>
             <%elsif app.application_status == "Interview pending"%>
               <span class="icon is-medium has-text-warning">
-                <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-users fa-2x" title="Interview pending" aria-hidden="true"></i>
+                <div class="hide">2</div>
               </span>
             <%elsif app.application_status == "Interview completed"%>
               <span class="icon is-medium has-text-success">
-                <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-users fa-2x" title="Interview completed" aria-hidden="true"></i>
+                <div class="hide">3</div>
               </span>
             <%end%>
           </td>

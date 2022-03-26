@@ -29,14 +29,21 @@ class ApplicationController < ActionController::Base
     all_interviews = Interview.select('*').where(app_id: app_id)
   end
 
-  def all_companies()
-    apps = current_user.apps
-    a = []
-    apps.each do |app| 
-      a << Company.select('*').where(id: app.company_id)
+  def all_companies
+    # apps = current_user.apps
+    # a = []
+    # apps.each do |app| 
+    #   a << Company.select('*').where(id: app.company_id)
+    # end
+    # return a
+
+    current_user.apps.map do |app|
+      app.company
+    end.uniq.sort_by do |company|
+      company.company_name
     end
-    return a
   end
+
   def interview_completed(interview)
     if interview.interview_date>Date.today
       return false
