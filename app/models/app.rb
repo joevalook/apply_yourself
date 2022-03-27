@@ -10,4 +10,17 @@ class App < ApplicationRecord
     interviews = App.joins(:interviews).select('*')
   end
 
+  def upcoming_interviews(this_date: Time.now)
+    self.interviews.select do |interview|
+      interview.interview_date > this_date
+    end
+  end
+
+  def upcoming_interviews?(this_date: Time.now)
+    upcoming_interviews(this_date: this_date).any?
+  end
+
+  def next_interview
+    upcoming_interviews.sort_by { |interview| interview.interview_date }.first
+  end
 end

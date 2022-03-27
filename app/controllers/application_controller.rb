@@ -12,15 +12,22 @@ class ApplicationController < ActionController::Base
   end
 
   def route_finder(app_id)
-    total_interviews = Interview.select('*').where(app_id: app_id)
-    today = Date.today
-    future_interviews = []
-    total_interviews.each do |interview|
-      if interview.interview_date > today
-        future_interviews.push(interview)
-      end
-    end
-    future_interviews.sort.first
+    # total_interviews = Interview.select('*').where(app_id: app_id)
+    total_interviews = App.find(app_id).interviews
+    # today = Date.today
+
+    total_interviews.select do |interview|
+      interview.interview_date > Time.now
+    end.sort_by { |interview| interview.interview_date }.first
+    
+    # today = Time.now
+    # future_interviews = []
+    # total_interviews.each do |interview|
+    #   if interview.interview_date > today
+    #     future_interviews.push(interview)
+    #   end
+    # end
+    # future_interviews.sort.first
   end
 
   helper_method :route_finder

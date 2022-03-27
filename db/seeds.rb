@@ -104,7 +104,7 @@ filtered_applications = applications.filter { |item| item.application_status == 
 
 interviews = filtered_applications.each do |application|
   interview_number = interviews_by_company[application.company.company_name] += 1
-  interview_date = application.application_deadline + rand(1..30).days
+  interview_date = application.applied_date + rand(16..30).days
 
   Interview.create! do |i|
     i.interview_number = interview_number

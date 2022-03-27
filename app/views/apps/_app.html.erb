@@ -23,10 +23,10 @@
           </td>
 
           <td class="interview-date pt-3">
-          <%if route_finder(app.id)%>
-            <%= route_finder(app.id).interview_date.strftime("%B %d, %Y")%>
-            <%else%>
-            <%=""%>
+          <%if app.upcoming_interviews?%>
+            <%= app.next_interview.interview_date.strftime("%B %d, %Y")%>
+          <%else%>
+            <%="Nope"%>
           <%end%>
           </td>
           
