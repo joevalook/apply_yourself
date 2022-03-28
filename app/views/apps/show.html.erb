@@ -1,4 +1,4 @@
-<section class="hero is-info my-4">
+<section class="hero my-4">
   <div class="hero-body">
     <p class="title">
    <%= @app.job_title%>
@@ -14,11 +14,11 @@
   <div class="tile is-vertical is-8">
     <div class="tile">
       <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-danger">
+        <article class="tile is-child notification colortile1">
           <p class="title">Upcoming Interviews</p>
           <p class="subtitle">Whats next?</p>
           <div class="buttons">
-          <a class="button is-primary" href="<%=@app.id%>/interviews/new" role="button">Add Interview</a>
+          <a class="button" href="<%=@app.id%>/interviews/new" role="button">Add Interview</a>
           </div>
           <div class="content">
             <%if interview_finder(@app.id)%>
@@ -30,7 +30,8 @@
             <%end%>
           </div>
         </article>
-        <article class="tile is-child notification is-warning">
+
+        <article class="tile is-child notification colortile2">
           <p class="title">Past Interviews</p>
           <div class="content">
             <%if interview_finder(@app.id)%>
@@ -44,10 +45,10 @@
         </article>
       </div>
       <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-info">
+        <article class="tile is-child notification colortile3">
           <p class="title">Company</p>
           <div class="buttons">
-          <a class="button is-primary" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
+          <a class="button" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
           </div>
           <p class="subtitle"><%=@app.company.company_name%></p>
           <p class="subtitle">Website</p>
@@ -59,7 +60,7 @@
             <%=@app.company.company_notes%>
           </div>
         </article>
-        <article class="tile is-child notification is-success">
+        <article class="tile is-child notification colortile4">
           <p class="title">Documents</p>
           <p class="subtitle">Resume</p>
           <div class="content">
@@ -78,11 +79,11 @@
     </div>
   </div>
   <div class="tile is-parent">
-    <article class="tile is-child notification is-primary">
+    <article class="tile is-child notification colortile5">
       <div class="content">
         <p class="title">Job Details</p>
         <div class="buttons">
-          <a class="button is-primary" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
+          <a class="button" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
           </div>
         <p class="subtitle">Project Deadline</p>
         <div class="content">
