@@ -7,7 +7,7 @@
           <div class="field">
             <%= form.label :interview_number, "Interview Number (required)" %><br>
             <%= form.number_field :interview_number %>
-            <% interview.errors.full_messages_for(:interview_number).each do |message| %>
+            <% @interview.errors.full_messages_for(:interview_number).each do |message| %>
               <div><%= message %></div>
             <% end %>
           </div>
@@ -15,7 +15,7 @@
           <div class="field">
             <%= form.label :interview_date, "Interview Date (required)" %><br>
             <%= form.date_field :interview_date %>
-            <% interview.errors.full_messages_for(:interview_date).each do |message| %>
+            <% @interview.errors.full_messages_for(:interview_date).each do |message| %>
               <div><%= message %></div>
             <% end %>
           </div>
@@ -24,7 +24,7 @@
         <div class="field">
           <%= form.label :interview_type %><br>
           <%= form.text_field :interview_type %>
-          <% interview.errors.full_messages_for(:interview_type).each do |message| %>
+          <% @interview.errors.full_messages_for(:interview_type).each do |message| %>
             <div><%= message %></div>
           <% end %>
         </div>
@@ -32,7 +32,7 @@
         <div class="field">
           <%= form.label :interview_notes %><br>
           <%= form.text_field :interview_notes %>
-          <% interview.errors.full_messages_for(:interview_notes).each do |message| %>
+          <% @interview.errors.full_messages_for(:interview_notes).each do |message| %>
             <div><%= message %></div>
           <% end %>
         </div>
@@ -40,7 +40,7 @@
         <div class="field">
           <%= form.label :thank_you, "Thank you email sent?" %><br>
           <%= form.check_box :thank_you %>
-          <% interview.errors.full_messages_for(:thank_you).each do |message| %>
+          <% @interview.errors.full_messages_for(:thank_you).each do |message| %>
             <div><%= message %></div>
           <% end %>
         </div>
