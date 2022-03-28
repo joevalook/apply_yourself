@@ -17,12 +17,13 @@ class CompaniesController < ApplicationController
   end
   def edit
     @company = Company.find(params[:id])
+    session[:return_to] ||= request.referer
   end
   def update
     @company = Company.find(params[:id])
 
     if @company.update(company_params)
-      redirect_to "/apps"
+      redirect_to session.delete(:return_to)
     else
       render :edit
     end
