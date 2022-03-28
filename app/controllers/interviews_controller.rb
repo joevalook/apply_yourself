@@ -28,7 +28,7 @@ class InterviewsController < ApplicationController
     @interview = Interview.find(params[:id])
 
     if @interview.update(interview_params)
-      redirect_to "/apps"
+      redirect_to "/apps/#{@interview.app_id}"
     else
       render :edit
     end
