@@ -59,19 +59,14 @@ end
 
 ## APPS
 
-
-pp "deadline",  Time.now + rand(10..30).days
-pp "Applied date", Time.now - rand(0..15) * 86400
-pp "Applied date2", Time.now - rand(0..15).days
-
 puts "Creating Apps ..."
 
 App.destroy_all
 
 applications = 100.times.map do
   App.create! do |a|
-    deadline = Time.now + rand(10..30).days
-    applied_date = Time.now - rand(0..15).days
+    deadline = Time.now + 20.days
+    applied_date = Time.now - 20.days
     
     a.job_title = "Junior #{%w[Rails Ruby Java Javascript React PostgreSQL MongoDB COBOL].sample} Developer"
     a.company_id = companies.sample.id
@@ -93,6 +88,9 @@ applications = 100.times.map do
   end
 end
 
+pp "deadline", Time.now + 20.days
+pp "applied_date", Time.now - 20.days
+
 
 # INTERVIEWS
 
@@ -100,11 +98,12 @@ puts "Creating Interviews ..."
 
 Interview.destroy_all
 interviews_by_company = Hash.new(0)
-filtered_applications = applications.filter { |item| item.application_status == "Interview pending"}
+filtered_applications_pending = applications.filter { |item| item.application_status == "Interview pending"}
+filtered_applications_completed = applications.filter { |item| item.application_status == "Interview completed"}
 
-interviews = filtered_applications.each do |application|
+filtered_applications_completed.each do |application|
   interview_number = interviews_by_company[application.company.company_name] += 1
-  interview_date = application.applied_date + rand(16..30).days
+  interview_date = application.applied_date + 10.days
 
   Interview.create! do |i|
     i.interview_number = interview_number
@@ -117,7 +116,29 @@ interviews = filtered_applications.each do |application|
       'Main'
     ].sample
     i.interview_notes = "Meeting with #{Faker::Name.name} (#{Faker::Job.seniority} #{Faker::Job.position}) and #{Faker::Name.name} (#{Faker::Job.seniority} #{Faker::Job.position})."
-    i.thank_you = interview_date > Time.now ? false : [true, false].sample
+    i.thank_you = [true, false].sample
+  end
+end
+
+pp "interview_date, completed", Time.now - 20.days + 10.days
+pp "interview_date, pending", Time.now - 20.days + 30.days
+
+filtered_applications_pending.each do |application|
+  interview_number = interviews_by_company[application.company.company_name] += 1
+  interview_date = application.applied_date + 30.days
+
+  Interview.create! do |i|
+    i.interview_number = interview_number
+    i.interview_date = interview_date
+    i.app_id = application.id
+    i.interview_type = [
+      'Preliminary',
+      'Tech',
+      'Callback',
+      'Main'
+    ].sample
+    i.interview_notes = "Meeting with #{Faker::Name.name} (#{Faker::Job.seniority} #{Faker::Job.position}) and #{Faker::Name.name} (#{Faker::Job.seniority} #{Faker::Job.position})."
+    i.thank_you = false
   end
 end
 
