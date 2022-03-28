@@ -63,11 +63,11 @@
           <p class="title">Documents</p>
           <p class="subtitle">Resume</p>
           <div class="content">
-            <%= @app.resume %>
+            <%= link_to 'Download Resume', @app.resume, download: '' %>
           </div>
           <p class="subtitle">Cover Letter</p>
           <div class="content">
-            <%= @app.cover_letter %>
+          <%= link_to 'Download Cover Letter', @app.cover_letter, download: '' %>
           </div>
           <p class="subtitle">Project</p>
           <div class="content">

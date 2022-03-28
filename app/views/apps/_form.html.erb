@@ -9,16 +9,16 @@
 
   <div class="field">
     <%= form.label :resume, "Resume(required)" %><br>
-    <%= form.text_field :resume %>
+    <%= form.file_field :resume %>
   </div>
 
   <div class="field">
     <%= form.label :cover_letter %><br>
-    <%= form.text_field :cover_letter %>
+    <%= form.file_field :cover_letter %>
     <% app.errors.full_messages_for(:cover_letter).each do |message| %>
       <div><%= message %></div>
     <% end %>
-  </div>
+  </div>`
 
   <div class="field">
     <%= form.label :project %><br>
