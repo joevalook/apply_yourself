@@ -7,11 +7,11 @@
      </div>
      <a class="navbar-item"  href="/">
         Applications
-      </a>
-
-
+     </a>
+  </div>
+  <div class="navbar-menu">
     <% if current_user %>
-    <div class="navbar-item">
+    <div class="navbar-item navbar-end">
       Signed in as <%= current_user.first_name %> <%= current_user.last_name %>  
       </div>
     

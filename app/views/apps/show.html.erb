@@ -1,5 +1,5 @@
-<section class="hero my-4">
-  <div class="hero-body">
+<section class="hero my-4 has-text-centered">
+  <div class="hero-body" >
     <p class="title">
    <%= @app.job_title%>
     </p>
@@ -15,10 +15,9 @@
     <div class="tile">
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification colortile1">
-          <p class="title">Upcoming Interviews</p>
-          <p class="subtitle">Whats next?</p>
+          <p class="title has-text-centered">Upcoming Interviews</p>
           <div class="buttons">
-          <a class="button" href="<%=@app.id%>/interviews/new" role="button">Add Interview</a>
+          <a class="button" style="margin:auto;" href="<%=@app.id%>/interviews/new" role="button">Add Interview</a>
           </div>
           <div class="content">
             <%if interview_finder(@app.id)%>
@@ -32,7 +31,7 @@
         </article>
 
         <article class="tile is-child notification colortile2">
-          <p class="title">Past Interviews</p>
+          <p class="title has-text-centered">Past Interviews</p>
           <div class="content">
             <%if interview_finder(@app.id)%>
               <% interview_finder(@app.id).each do |interview|%>
@@ -44,66 +43,75 @@
           </div>
         </article>
       </div>
-      <div class="tile is-parent is-vertical">
+      <div class="tile is-parent is-vertical has-text-centered">
         <article class="tile is-child notification colortile3">
           <p class="title">Company</p>
           <div class="buttons">
-          <a class="button" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
           </div>
           <p class="subtitle"><%=@app.company.company_name%></p>
           <p class="subtitle">Website</p>
           <div class="content">
-            <%= @app.company.website %>
+          <%= @app.company.website %>
           </div>
           <p class="subtitle">Notes</p>
           <div class="content">
-            <%=@app.company.company_notes%>
+          <%=@app.company.company_notes%>
           </div>
+          <a class="button" style="margin:auto;" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
         </article>
         <article class="tile is-child notification colortile4">
           <p class="title">Documents</p>
-          <p class="subtitle">Resume</p>
           <div class="content">
-            <%= @app.resume %>
+            <% if @app.resume.content_type %>
+              <%= link_to 'Download Resume', @app.resume, download: '' %>
+              <% else %>
+              <a class="button" href="<%=@app.id%>/edit" role="button">Add Resume</a>
+            <% end %>
           </div>
-          <p class="subtitle">Cover Letter</p>
           <div class="content">
-            <%= @app.cover_letter %>
+            <% if @app.cover_letter.content_type %>
+              <%= link_to 'Download Cover Letter', @app.cover_letter, download: '' %>
+              <% else %>
+              <a class="button" href="<%=@app.id%>/edit" role="button">Add Cover Letter</a>
+            <% end %>
           </div>
-          <p class="subtitle">Project</p>
           <div class="content">
-            <%= @app.project %>
+            <% if @app.project.content_type %>
+              <%= link_to 'Download project', @app.project, download: '' %>
+              <% else %>
+              <a class="button" href="<%=@app.id%>/edit" role="button">Add Project File</a>
+            <% end %>
           </div>
         </article>
       </div>
     </div>
   </div>
-  <div class="tile is-parent">
+  <div class="tile is-parent has-text-centered">
     <article class="tile is-child notification colortile5">
       <div class="content">
         <p class="title">Job Details</p>
-        <div class="buttons">
-          <a class="button" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
-          </div>
         <p class="subtitle">Project Deadline</p>
         <div class="content">
-          <%= @app.project_deadline %>
+        <%= @app.project_deadline %>
         </div>
         <p class="subtitle">Application Deadline</p>
         <div class="content">
-          <%= @app.application_deadline %>
+        <%= @app.application_deadline %>
         </div>
         <p class="subtitle">Application Status</p>
         <div class="content">
-          <%= @app.application_status %>
+        <%= @app.application_status %>
         </div>
         <p class="subtitle">Applied Date</p>
         <div class="content">
-          <%= @app.applied_date %>
+        <%= @app.applied_date %>
         </div>
         <p class="subtitle">Notes</p>
         <div class="content">
-          <%= @app.notes %>
+        <%= @app.notes %>
+        </div>
+        <div class="buttons">
+          <a class="button" style="margin:auto;" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
         </div>
       </div>
     </article>

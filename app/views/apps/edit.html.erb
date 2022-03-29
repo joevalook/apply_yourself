@@ -15,7 +15,10 @@
 
         <div class="field">
           <%= form.label :resume, "Resume (required)" %><br>
-          <%= form.text_field :resume %>
+          <%= form.file_field :resume %>
+          <% if @app.resume.attached? %>
+              <p><%= @app.resume.blob.filename %></p>
+          <% end %>
           <% @app.errors.full_messages_for(:resume).each do |message| %>
             <div><%= message %></div>
           <% end %>
@@ -23,7 +26,10 @@
 
         <div class="field">
           <%= form.label :cover_letter %><br>
-          <%= form.text_field :cover_letter %>
+          <%= form.file_field :cover_letter %>
+          <% if @app.cover_letter.attached? %>
+              <p><%= @app.cover_letter.blob.filename %></p>
+          <% end %>
           <% @app.errors.full_messages_for(:cover_letter).each do |message| %>
             <div><%= message %></div>
           <% end %>
@@ -31,7 +37,10 @@
 
         <div class="field">
           <%= form.label :project %><br>
-          <%= form.text_field :project %>
+          <%= form.file_field :project %>
+          <% if @app.project.attached? %>
+              <p><%= @app.project.blob.filename %></p>
+          <% end %>
           <% @app.errors.full_messages_for(:project).each do |message| %>
             <div><%= message %></div>
           <% end %>

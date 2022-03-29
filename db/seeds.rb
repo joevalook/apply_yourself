@@ -66,12 +66,9 @@ App.destroy_all
 applications = 100.times.map do
   App.create! do |a|
     deadline = Time.now + rand(15..30).days
-    applied_date = Time.now - rand(15..30).days
-    
+    applied_date = Time.now - rand(15..30).days  
     a.job_title = "Junior #{%w[Rails Ruby Java Javascript React PostgreSQL MongoDB COBOL].sample} Developer"
     a.company_id = companies.sample.id
-    a.resume = "resume.com/john.wilson"
-    a.cover_letter = "resume.com/cover_letter/john.wilson"
     a.application_deadline = deadline
     a.applied_date = applied_date
     a.application_status = [
