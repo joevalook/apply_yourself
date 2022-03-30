@@ -48,15 +48,9 @@
           <p class="title">Company</p>
           <div class="buttons">
           </div>
-          <p class="subtitle"><%=@app.company.company_name%></p>
-          <p class="subtitle">Website</p>
-          <div class="content">
-          <%= @app.company.website %>
-          </div>
-          <p class="subtitle">Notes</p>
-          <div class="content">
-          <%=@app.company.company_notes%>
-          </div>
+          <p class="subtitle"> Name: <%=@app.company.company_name%></p>
+          <p class="subtitle"> Website: <%= @app.company.website %></p>
+          <p class="subtitle">Notes <%=@app.company.company_notes%></p>
           <a class="button" style="margin:auto;" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
         </article>
         <article class="tile is-child notification colortile4">
