@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :interviews, only: [:edit, :update]
-  resources :apps, only: [:index, :show, :edit, :update]
+  resources :apps, only: [:index, :show, :edit, :update, :destroy]
 
   #users routes
   get '/signup' => 'users#new'

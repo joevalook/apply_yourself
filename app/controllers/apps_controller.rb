@@ -58,6 +58,12 @@ class AppsController < ApplicationController
       render :edit
     end
   end
+  def destroy
+    @app = App.find(params[:id])
+    @app.destroy
+
+    redirect_to '/'
+  end
 
   private
 

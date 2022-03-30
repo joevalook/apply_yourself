@@ -50,7 +50,7 @@
           </div>
           <p class="subtitle"> Name: <%=@app.company.company_name%></p>
           <p class="subtitle"> Website: <%= @app.company.website %></p>
-          <p class="subtitle">Notes <%=@app.company.company_notes%></p>
+          <p class="subtitle">Notes: <%=@app.company.company_notes%></p>
           <a class="button" style="margin:auto;" href="/companies/<%=@app.company.id%>/edit" role="button">Edit this Company</a>
         </article>
         <article class="tile is-child notification colortile4">
@@ -105,7 +105,12 @@
         <%= @app.notes %>
         </div>
         <div class="buttons">
-          <a class="button" style="margin:auto;" href="<%=@app.id%>/edit" role="button">Edit this Application</a>
+          <a class="button" style="margin:auto;" href="<%=@app.id%>/edit" role="button">Edit this Application</a> 
+        </div>
+        <div class="buttons" >
+        <a class="button" style="margin:auto;"<%= link_to "Destroy", app_path(@app),
+                  method: :delete,
+                  data: { confirm: "Are you sure you would like to delete this application?" } %></a>
         </div>
       </div>
     </article>
